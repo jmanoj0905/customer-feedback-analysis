@@ -4,9 +4,9 @@
 
 [![AWS](https://img.shields.io/badge/AWS-Comprehend-orange)](https://aws.amazon.com/comprehend/)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -22,137 +22,100 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-## 🎯 Overview
+## Overview
 
-The Customer Feedback Analysis System is a serverless application built on AWS that analyzes customer feedback using natural language processing (NLP). It provides real-time sentiment analysis, key phrase extraction, and entity recognition to help businesses understand customer opinions and improve their products/services.
+The Customer Feedback Analysis System is a serverless application built on AWS that analyzes customer feedback using natural language processing (NLP). It provides real-time sentiment analysis, key phrase extraction, and entity recognition to help businesses understand customer opinions and improve their products and services.
 
-### Why This Project?
-
-- **Real-world Application**: Demonstrates practical use of cloud-based AI/ML services
-- **Serverless Architecture**: Showcases modern cloud architecture patterns
-- **End-to-End Solution**: Complete full-stack application from frontend to backend
-- **Production-Ready**: Includes IaC, testing, documentation, and deployment automation
-- **Resume-Worthy**: Perfect for showcasing cloud development skills
-
-## ✨ Features
-
-### Core Functionality
-
-- ✅ **Real-time Sentiment Analysis** - Classify feedback as Positive, Negative, Neutral, or Mixed
-- ✅ **Key Phrase Extraction** - Identify important topics and themes
-- ✅ **Entity Recognition** - Detect people, organizations, locations, and more
-- ✅ **Analytics Dashboard** - Visualize sentiment trends with interactive charts
-- ✅ **Multi-category Support** - Organize feedback by product, service, delivery, etc.
-
-### Technical Features
-
-- ✅ **Serverless Architecture** - Auto-scaling with AWS Lambda
-- ✅ **Infrastructure as Code** - CloudFormation and Terraform templates
-- ✅ **Automated Deployment** - One-command deployment script
-- ✅ **Comprehensive Testing** - Unit tests with mocking
-- ✅ **Detailed Documentation** - Architecture, API, and setup guides
-- ✅ **Mock Data Mode** - Test frontend without AWS deployment
-
-## 🏗️ Architecture
+## Architecture
 
 ```
-┌─────────────┐      ┌──────────────┐      ┌─────────────┐
-│   Frontend  │─────▶│ API Gateway  │─────▶│   Lambda    │
-│  (S3/HTML)  │      │   (REST)     │      │  Functions  │
-└─────────────┘      └──────────────┘      └──────┬──────┘
+┌─────────────┐      ┌──────────────┐        ┌─────────────┐
+│   Frontend  │─────▶│ API Gateway  │───────▶│   Lambda    │
+│  (S3/HTML)  │      │   (REST)     │        │  Functions  │
+└─────────────┘      └──────────────┘        └──────┬──────┘
                                                     │
                                           ┌─────────┴────────┐
                                           │                  │
-                                    ┌─────▼──────┐    ┌─────▼────────┐
-                                    │ Comprehend │    │  DynamoDB    │
-                                    │   (NLP)    │    │   (NoSQL)    │
-                                    └────────────┘    └──────────────┘
+                                    ┌─────▼──────┐     ┌─────▼────────┐
+                                    │ Comprehend │     │  DynamoDB    │
+                                    │   (NLP)    │     │   (NoSQL)    │
+                                    └────────────┘     └──────────────┘
 ```
 
 ### AWS Services Used
 
 | Service | Purpose |
 |---------|---------|
-| **AWS Comprehend** | Sentiment analysis, key phrases, entities |
-| **AWS Lambda** | Serverless compute for processing |
-| **Amazon DynamoDB** | NoSQL database for feedback storage |
-| **Amazon S3** | Static website hosting |
-| **API Gateway** | RESTful API endpoints |
-| **IAM** | Security and access management |
-| **CloudWatch** | Logging and monitoring |
+| AWS Comprehend | Sentiment analysis, key phrase extraction, entity recognition |
+| AWS Lambda | Serverless compute for processing feedback |
+| Amazon DynamoDB | NoSQL database for feedback storage |
+| Amazon S3 | Static website hosting |
+| API Gateway | RESTful API endpoints |
+| IAM | Security and access management |
+| CloudWatch | Logging and monitoring |
 
-📖 [Detailed Architecture Documentation](./docs/architecture.md)
+## Quick Start
 
-## 📚 Prerequisites
-
-### Required
-
-- **AWS Account** with administrative access
-- **AWS CLI** (v2.x or later) - [Install Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-- **Python 3.9+** - [Download](https://www.python.org/downloads/)
-- **Git** - [Download](https://git-scm.com/downloads)
-
-### Optional
-
-- **Terraform** (v1.0+) - For infrastructure as code
-- **Node.js** (v14+) - For frontend development tools
-
-### AWS Permissions
-
-Your AWS user needs permissions for:
-- Lambda, DynamoDB, S3, API Gateway, IAM, CloudFormation, Comprehend
-
-## 🚀 Quick Start
-
-### 1. Clone the Repository
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/customer-sentiment-analysis.git
 cd customer-sentiment-analysis
 ```
 
-### 2. Configure AWS Credentials
+### Step 2: Configure AWS Credentials
 
 ```bash
 aws configure
 ```
 
-Enter your:
+When prompted, enter:
 - AWS Access Key ID
 - AWS Secret Access Key
-- Default region (e.g., `us-east-1`)
-- Output format (`json`)
+- Default region name (example: us-east-1)
+- Default output format (recommended: json)
 
-### 3. Deploy to AWS
+### Step 3: Deploy to AWS
+
+Make the deployment script executable and run it:
 
 ```bash
 chmod +x scripts/deploy.sh
 ./scripts/deploy.sh
 ```
 
-The script will:
-- ✅ Create all AWS resources
-- ✅ Deploy Lambda functions
-- ✅ Configure API Gateway
-- ✅ Host frontend on S3
-- ✅ Output URLs and endpoints
+The deployment script will automatically:
+- Create all required AWS resources
+- Deploy Lambda functions with dependencies
+- Configure API Gateway endpoints
+- Host the frontend on S3
+- Display URLs and endpoints upon completion
 
-### 4. Update Frontend Configuration
+### Step 4: Update Frontend Configuration
 
-After deployment, update `frontend/src/js/api.js`:
+After deployment completes, update the API endpoint in `frontend/src/js/api.js`:
 
 ```javascript
 const CONFIG = {
   API_ENDPOINT: "https://your-api-id.execute-api.us-east-1.amazonaws.com/prod",
-  USE_MOCK_DATA: false,  // Set to false for production
+  USE_MOCK_DATA: false,
 };
 ```
 
-### 5. Access Your Application
+Replace `your-api-id` with the actual API Gateway ID from the deployment output.
 
-Open the Website URL provided by the deployment script in your browser!
+### Step 5: Access the Application
 
-## 📁 Project Structure
+Open the Website URL provided in the deployment output in your web browser.
+
+### (Alternative): Running Locally
+Clone repo, then run the following command in the project root directory:
+
+```
+python3 -m http.server 8000
+```
+
+## Project Structure
 
 ```
 customer-feedback-analysis/
@@ -160,76 +123,82 @@ customer-feedback-analysis/
 ├── backend/
 │   ├── lambda/
 │   │   ├── analyze_feedback/
-│   │   │   ├── lambda_function.py          # Main sentiment analysis handler
-│   │   │   ├── requirements.txt            # boto3, etc.
-│   │   │   └── config.py                   # Configuration
+│   │   │   ├── lambda_function.py          # Sentiment analysis handler
+│   │   │   ├── requirements.txt            # Python dependencies
+│   │   │   └── config.py                   # Configuration settings
 │   │   │
 │   │   └── get_analytics/
-│   │       ├── lambda_function.py          # Analytics aggregation
-│   │       ├── requirements.txt
-│   │       └── config.py
+│   │       ├── lambda_function.py          # Analytics aggregation handler
+│   │       ├── requirements.txt            # Python dependencies
+│   │       └── config.py                   # Configuration settings
 │   │
 │   └── utils/
-│       └── comprehend_helper.py            # Reusable Comprehend functions
+│       └── comprehend_helper.py            # Reusable Comprehend utilities
 │
 ├── frontend/
 │   ├── public/
-│   │   └── index.html                      # Main HTML file
+│   │   └── index.html                      # Main HTML page
 │   │
 │   ├── src/
 │   │   ├── js/
-│   │   │   ├── app.js                      # Main application logic
-│   │   │   ├── api.js                      # API communication
+│   │   │   ├── app.js                      # Application logic
+│   │   │   ├── api.js                      # API communication layer
 │   │   │   └── charts.js                   # Chart visualizations
 │   │   │
 │   │   └── css/
-│   │       └── style.css                   # Styling
+│   │       └── style.css                   # Application styling
 │   │
 │   └── package.json                        # Frontend dependencies
 │
 ├── infrastructure/
 │   ├── cloudformation/
-│   │   └── template.yaml                   # CloudFormation IaC
+│   │   └── template.yaml                   # CloudFormation template
 │   │
 │   └── terraform/
-│       ├── main.tf                         # Terraform main config
+│       ├── main.tf                         # Terraform configuration
 │       ├── variables.tf                    # Terraform variables
 │       └── outputs.tf                      # Terraform outputs
 │
 ├── data/
-│   ├── sample_feedback.json                # Sample test data (20 examples)
-│   └── processed/                          # Processed results (gitignored)
+│   ├── sample_feedback.json                # 20 test samples
+│   └── processed/                          # Processed data (gitignored)
 │
 ├── tests/
-│   ├── test_lambda.py                      # Unit tests for Lambda
+│   ├── test_lambda.py                      # Lambda unit tests
 │   └── sample_requests.json                # Sample API requests
 │
 ├── docs/
-│   ├── architecture.md                     # System architecture
-│   ├── setup.md                            # Detailed setup guide
+│   ├── architecture.md                     # Architecture documentation
+│   ├── setup.md                            # Setup instructions
 │   └── api_documentation.md                # API reference
 │
 ├── scripts/
 │   ├── deploy.sh                           # Automated deployment
-│   └── upload_sample_data.py               # Upload test data
+│   ├── upload_sample_data.py               # Sample data uploader
+│   └── validate_project.sh                 # Project validation
 │
-├── .gitignore                              # Git ignore rules
+├── .gitignore                              # Git ignore patterns
 ├── README.md                               # This file
 ├── LICENSE                                 # MIT License
 ├── CONTRIBUTING.md                         # Contribution guidelines
+├── EXPLAINED.md                            # Detailed technical explanation
 ├── requirements.txt                        # Python dependencies
 └── config.json                             # Project configuration
 ```
 
-## 🔧 Deployment
+## Deployment
 
 ### Option 1: Automated Script (Recommended)
+
+The easiest way to deploy is using the provided deployment script:
 
 ```bash
 ./scripts/deploy.sh
 ```
 
-### Option 2: CloudFormation
+### Option 2: AWS CloudFormation
+
+Deploy using CloudFormation directly:
 
 ```bash
 aws cloudformation create-stack \
@@ -240,39 +209,17 @@ aws cloudformation create-stack \
 
 ### Option 3: Terraform
 
+Deploy using Terraform:
+
 ```bash
 cd infrastructure/terraform
 terraform init
 terraform apply
 ```
 
-📖 [Detailed Setup Guide](./docs/setup.md)
-
-## 💻 Usage
-
-### Web Interface
-
-1. **Submit Feedback**
-   - Enter customer ID (optional)
-   - Type or paste feedback text
-   - Select category
-   - Click "Analyze Feedback"
-
-2. **View Results**
-   - Sentiment classification with confidence scores
-   - Extracted key phrases
-   - Detected entities
-   - Real-time charts and statistics
-
-3. **Analytics Dashboard**
-   - Total feedback count
-   - Sentiment distribution (pie chart)
-   - Average sentiment scores (bar chart)
-   - Recent feedback history
-
 ### API Usage
 
-**Analyze Feedback:**
+**Analyze Feedback Endpoint:**
 
 ```bash
 curl -X POST https://your-api.execute-api.us-east-1.amazonaws.com/prod/analyze \
@@ -285,7 +232,7 @@ curl -X POST https://your-api.execute-api.us-east-1.amazonaws.com/prod/analyze \
   }'
 ```
 
-**Get Analytics:**
+**Get Analytics Endpoint:**
 
 ```bash
 curl -X POST https://your-api.execute-api.us-east-1.amazonaws.com/prod/analytics \
@@ -296,102 +243,103 @@ curl -X POST https://your-api.execute-api.us-east-1.amazonaws.com/prod/analytics
   }'
 ```
 
-📖 [Full API Documentation](./docs/api_documentation.md)
+For complete API documentation, see [API Documentation](./docs/api_documentation.md)
 
-## 🧪 Testing
+## Testing
 
-### Run Unit Tests
+### Running Unit Tests
+
+Install test dependencies:
 
 ```bash
-# Install test dependencies
 pip install -r requirements.txt
+```
 
-# Run all tests
+Run all tests:
+
+```bash
 python -m pytest tests/ -v
+```
 
-# Run with coverage
+Run tests with coverage report:
+
+```bash
 python -m pytest tests/ --cov=backend --cov-report=html
 ```
 
-### Test Frontend Locally
+### Testing Frontend Locally
+
+To test the frontend without deploying to AWS:
 
 ```bash
 cd frontend/public
 python3 -m http.server 8000
-# Visit http://localhost:8000
 ```
 
-### Upload Sample Data
+Open http://localhost:8000 in your browser. The frontend will run in mock data mode.
+
+### Uploading Sample Data
+
+After deployment, you can upload the sample feedback data:
 
 ```bash
-# Update API endpoint in script first
+# First, update the API endpoint in scripts/upload_sample_data.py
 python3 scripts/upload_sample_data.py
 ```
 
-## 💰 Cost Estimation
+### Validating the Project
+
+Run the validation script to check all files:
+
+```bash
+./scripts/validate_project.sh
+```
+
+## Cost Estimation
 
 ### AWS Free Tier (First 12 Months)
 
-- AWS Comprehend: 50,000 units/month free
-- Lambda: 1M requests + 400,000 GB-seconds free
-- DynamoDB: 25GB + 25 WCU/RCU free
-- S3: 5GB storage free
-- API Gateway: 1M API calls free
+The following free tier allowances apply:
+
+- AWS Comprehend: 50,000 units per month
+- AWS Lambda: 1 million requests + 400,000 GB-seconds per month
+- Amazon DynamoDB: 25 GB storage + 25 WCU/RCU
+- Amazon S3: 5 GB storage
+- API Gateway: 1 million API calls per month
 
 ### Beyond Free Tier
 
-**Estimated monthly cost for 10,000 feedback analyses:**
+Estimated monthly costs for processing 10,000 feedback submissions:
 
-| Service | Usage | Cost |
-|---------|-------|------|
-| Comprehend | 10,000 units | $1.00 |
-| Lambda | 10,000 invocations | $0.20 |
-| DynamoDB | 10,000 writes | $1.25 |
+| Service | Usage | Estimated Cost |
+|---------|-------|----------------|
+| AWS Comprehend | 10,000 units | $1.00 |
+| AWS Lambda | 10,000 invocations | $0.20 |
+| Amazon DynamoDB | 10,000 write operations | $1.25 |
 | API Gateway | 10,000 requests | $0.04 |
-| S3 | 5 GB storage | $0.12 |
-| **Total** | | **~$2.61/month** |
+| Amazon S3 | 5 GB storage | $0.12 |
+| **Total** | | **Approximately $2.61/month** |
 
-## 🤝 Contributing
+Note: Actual costs may vary based on usage patterns and AWS region.
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md).
+## Roadmap
 
-### Quick Contribution Steps
+Future enhancements planned for this project:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- Multi-language support for international feedback
+- Email notifications for negative sentiment detection
+- Batch processing capabilities for large datasets
+- Historical trend analysis and reporting
+- Export functionality for analytics (PDF/CSV)
+- Integration with third-party platforms (Slack, Zendesk)
+- User authentication using AWS Cognito
+- Real-time updates using WebSocket connections
 
-## 📄 License
+## Additional Resources
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- AWS Comprehend for NLP capabilities
-- Chart.js for data visualizations
-- AWS CDK/CloudFormation for IaC templates
-
-## 📞 Support
-
-- 📧 Email: your.email@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/customer-sentiment-analysis/issues)
-- 📚 Docs: [Documentation](./docs/)
-
-## 🗺️ Roadmap
-
-- [ ] Multi-language support
-- [ ] Email notifications for negative feedback
-- [ ] Batch processing for large datasets
-- [ ] Trend analysis over time
-- [ ] Export analytics to PDF/CSV
-- [ ] Integration with Slack/Zendesk
-- [ ] User authentication with Cognito
-- [ ] Real-time WebSocket updates
+- [Detailed Technical Explanation](./EXPLAINED.md)
+- [Architecture Documentation](./docs/architecture.md)
+- [Setup Guide](./docs/setup.md)
+- [API Reference](./docs/api_documentation.md)
 
 ---
-
-**Built with ❤️ for learning AWS and serverless architectures**
-
-*Perfect for demonstrating cloud development skills to potential employers!*
