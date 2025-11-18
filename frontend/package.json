@@ -1,0 +1,38 @@
+{
+  "name": "customer-feedback-analysis-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Customer Feedback Analysis System",
+  "main": "src/js/app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 8000 --directory public",
+    "build": "echo 'No build step required for vanilla JavaScript'",
+    "lint": "eslint src/js/**/*.js",
+    "format": "prettier --write 'src/**/*.{js,css,html}'",
+    "test": "echo 'No tests configured yet'"
+  },
+  "keywords": [
+    "sentiment-analysis",
+    "aws",
+    "comprehend",
+    "customer-feedback"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "prettier": "^3.0.0",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "chart.js": "^3.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/customer-sentiment-analysis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/customer-sentiment-analysis/issues"
+  },
+  "homepage": "https://github.com/yourusername/customer-sentiment-analysis#readme"
+}

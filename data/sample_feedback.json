@@ -1,0 +1,122 @@
+[
+  {
+    "customer_id": "CUST001",
+    "feedback": "The product quality is excellent! I'm very satisfied with my purchase. The delivery was quick and the packaging was secure. Highly recommend!",
+    "category": "product",
+    "expected_sentiment": "POSITIVE"
+  },
+  {
+    "customer_id": "CUST002",
+    "feedback": "Terrible experience. The item arrived damaged and customer service was unhelpful. Very disappointed with this purchase.",
+    "category": "service",
+    "expected_sentiment": "NEGATIVE"
+  },
+  {
+    "customer_id": "CUST003",
+    "feedback": "The product is okay. Nothing special but it works as described. Delivery took longer than expected.",
+    "category": "delivery",
+    "expected_sentiment": "NEUTRAL"
+  },
+  {
+    "customer_id": "CUST004",
+    "feedback": "Amazing customer support! They resolved my issue within minutes. However, the product itself has some minor flaws.",
+    "category": "service",
+    "expected_sentiment": "MIXED"
+  },
+  {
+    "customer_id": "CUST005",
+    "feedback": "Love this product! Best purchase I've made this year. The quality exceeds my expectations and the price is reasonable.",
+    "category": "product",
+    "expected_sentiment": "POSITIVE"
+  },
+  {
+    "customer_id": "CUST006",
+    "feedback": "Not worth the money. Poor quality materials and it broke after just one week of use. Requesting a refund.",
+    "category": "product",
+    "expected_sentiment": "NEGATIVE"
+  },
+  {
+    "customer_id": "CUST007",
+    "feedback": "The shipping was fast and the product matches the description. No complaints so far.",
+    "category": "delivery",
+    "expected_sentiment": "POSITIVE"
+  },
+  {
+    "customer_id": "CUST008",
+    "feedback": "Website navigation is confusing and checkout process is too complicated. Product is fine though.",
+    "category": "other",
+    "expected_sentiment": "MIXED"
+  },
+  {
+    "customer_id": "CUST009",
+    "feedback": "Outstanding quality and excellent value for money. Will definitely buy again!",
+    "category": "product",
+    "expected_sentiment": "POSITIVE"
+  },
+  {
+    "customer_id": "CUST010",
+    "feedback": "Received the wrong item. Customer service is slow to respond. Very frustrating experience.",
+    "category": "service",
+    "expected_sentiment": "NEGATIVE"
+  },
+  {
+    "customer_id": "CUST011",
+    "feedback": "The product works fine but nothing extraordinary. Standard quality for the price.",
+    "category": "product",
+    "expected_sentiment": "NEUTRAL"
+  },
+  {
+    "customer_id": "CUST012",
+    "feedback": "Great product features but the user manual is poorly written. Took me a while to figure out how to use it.",
+    "category": "product",
+    "expected_sentiment": "MIXED"
+  },
+  {
+    "customer_id": "CUST013",
+    "feedback": "Absolutely fantastic! Exceeded all my expectations. The team went above and beyond to ensure satisfaction.",
+    "category": "service",
+    "expected_sentiment": "POSITIVE"
+  },
+  {
+    "customer_id": "CUST014",
+    "feedback": "Worst online shopping experience ever. Delayed delivery, poor packaging, and substandard product quality.",
+    "category": "delivery",
+    "expected_sentiment": "NEGATIVE"
+  },
+  {
+    "customer_id": "CUST015",
+    "feedback": "The pricing is competitive and the product quality is decent. Delivery time was acceptable.",
+    "category": "pricing",
+    "expected_sentiment": "NEUTRAL"
+  },
+  {
+    "customer_id": "CUST016",
+    "feedback": "I love the design and functionality, but the product is slightly overpriced compared to competitors.",
+    "category": "pricing",
+    "expected_sentiment": "MIXED"
+  },
+  {
+    "customer_id": "CUST017",
+    "feedback": "Superb service! The support team was friendly, knowledgeable, and resolved my issue immediately.",
+    "category": "service",
+    "expected_sentiment": "POSITIVE"
+  },
+  {
+    "customer_id": "CUST018",
+    "feedback": "The product stopped working after two days. Quality control seems lacking. Requesting a replacement.",
+    "category": "product",
+    "expected_sentiment": "NEGATIVE"
+  },
+  {
+    "customer_id": "CUST019",
+    "feedback": "Standard product with standard service. Met my basic requirements without any issues.",
+    "category": "product",
+    "expected_sentiment": "NEUTRAL"
+  },
+  {
+    "customer_id": "CUST020",
+    "feedback": "Beautiful packaging and great product quality, but customer service could be more responsive.",
+    "category": "service",
+    "expected_sentiment": "MIXED"
+  }
+]

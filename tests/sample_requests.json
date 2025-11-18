@@ -1,0 +1,75 @@
+{
+  "analyze_feedback_request": {
+    "operation": "analyze_feedback",
+    "feedback": "This product exceeded my expectations! The quality is outstanding and delivery was super fast. Highly recommend!",
+    "customer_id": "CUST001",
+    "metadata": {
+      "category": "product",
+      "source": "web",
+      "timestamp": "2024-01-15T10:30:00Z"
+    }
+  },
+  "analyze_negative_feedback": {
+    "operation": "analyze_feedback",
+    "feedback": "Very disappointing experience. The product broke after one day and customer service was unhelpful.",
+    "customer_id": "CUST002",
+    "metadata": {
+      "category": "product",
+      "source": "mobile_app"
+    }
+  },
+  "analyze_neutral_feedback": {
+    "operation": "analyze_feedback",
+    "feedback": "The product works as described. Nothing special but it does the job.",
+    "customer_id": "CUST003",
+    "metadata": {
+      "category": "product"
+    }
+  },
+  "analyze_mixed_feedback": {
+    "operation": "analyze_feedback",
+    "feedback": "Great product quality but terrible customer service. The item is excellent but getting help was frustrating.",
+    "customer_id": "CUST004",
+    "metadata": {
+      "category": "service"
+    }
+  },
+  "get_analytics_request": {
+    "operation": "get_analytics",
+    "limit": 50
+  },
+  "get_analytics_large_limit": {
+    "operation": "get_analytics",
+    "limit": 100
+  },
+  "cors_preflight": {
+    "httpMethod": "OPTIONS"
+  },
+  "invalid_request_missing_feedback": {
+    "operation": "analyze_feedback",
+    "customer_id": "CUST005",
+    "metadata": {}
+  },
+  "invalid_request_empty_feedback": {
+    "operation": "analyze_feedback",
+    "feedback": "",
+    "customer_id": "CUST006"
+  },
+  "batch_feedback_requests": [
+    {
+      "feedback": "Amazing service!",
+      "customer_id": "BATCH001",
+      "metadata": {"category": "service"}
+    },
+    {
+      "feedback": "Poor quality product.",
+      "customer_id": "BATCH002",
+      "metadata": {"category": "product"}
+    },
+    {
+      "feedback": "Average experience overall.",
+      "customer_id": "BATCH003",
+      "metadata": {"category": "other"}
+    }
+  ]
+}
